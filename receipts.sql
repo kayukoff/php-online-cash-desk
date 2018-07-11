@@ -1,0 +1,9 @@
+CREATE TABLE `receipts` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `receipt_data` VARCHAR(2048) NOT NULL,
+  `response_data` VARCHAR(2048) DEFAULT NULL,
+  `status` TINYINT(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`)
+) DEFAULT CHARSET=utf8;
