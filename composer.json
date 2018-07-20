@@ -1,6 +1,9 @@
 {
     "name": "kayukoff/online-cash-desk",
-    "version": "0.1",
+    "description": "PHP SDK for integrating with online cash desks",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/kayukoff/php-online-cash-desk",
     "require": {
         "php": ">=5.6.0",
         "ext-curl": "*",
