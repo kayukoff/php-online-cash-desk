@@ -1,5 +1,5 @@
 {
-    "name": "kayukoff/online-cash-desk",
+    "name": "kayukoff/php-online-cash-desk",
     "description": "PHP SDK for integrating with online cash desks",
     "type": "library",
     "license": "MIT",
