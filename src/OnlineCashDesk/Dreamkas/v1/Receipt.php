@@ -46,9 +46,36 @@ class Receipt extends \OnlineCashDesk\AbstractReceipt
     ];
 
 
+    /**
+     * Receipt constructor.
+     *
+     * @param \OnlineCashDesk\CashDesk|array $cashDesk
+     */
+    public function __construct($cashDesk)
+    {
+        parent::__construct($cashDesk);
+
+        if (is_array($cashDesk)) {
+            return;
+        }
+
+        $config = $cashDesk->getConfig();
+        if (empty($config['deviceId'])
+            || empty($config['timeout'])
+            || empty($config['sno'])
+        ) {
+            throw new \LogicException('Online cash desk config does not contain required param(s): deviceId, timeout, sno');
+        }
+
+        $this->setTaxSystem($config['sno']);
+
+        $this->data['deviceId'] = $config['deviceId'];
+        $this->data['timeout'] = $config['timeout'];
+    }
+
     public function getCreationDateTime()
     {
-        return null;
+        return new \DateTime('now');
     }
 
     public function setCreationDateTime(\DateTime $dateTime)

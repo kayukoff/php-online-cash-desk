@@ -6,7 +6,7 @@ use OnlineCashDesk\ApiResponse;
 
 class ApiCaller implements \OnlineCashDesk\ApiCaller
 {
-    const API_ENDPOINT = 'https://kabinet.dreamkas.ru/api/';
+    const API_ENDPOINT = 'https://kabinet.dreamkas.ru/api/v1/';
 
     private $token = null;
 
@@ -83,7 +83,7 @@ class ApiCaller implements \OnlineCashDesk\ApiCaller
         $ch = curl_init();
 
         try {
-            curl_setopt($ch, CURLOPT_URL, self::API_ENDPOINT);
+            curl_setopt($ch, CURLOPT_URL, self::API_ENDPOINT . $path);
             curl_setopt($ch, CURLOPT_HEADER, FALSE);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
