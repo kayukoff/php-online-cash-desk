@@ -8,43 +8,28 @@ class Receipt extends \OnlineCashDesk\Atol\Receipt
     /**
      * Receipt constructor.
      *
-     * @param $cashDesk|array
-     * @param null $orderId
+     * @param \OnlineCashDesk\CashDesk|array $cashDesk
      */
-    public function __construct($cashDesk, $orderId = null, $config = [])
+    public function __construct($cashDesk)
     {
-        // TODO
-
-        parent::__construct();
-
-
+        parent::__construct($cashDesk);
 
         if (is_array($cashDesk)) {
-            $this->fromArray($cashDesk);
             return;
-        } elseif (!($cashDesk instanceof \OnlineCashDesk\CashDesk) || empty($orderId)) {
-            throw new \InvalidArgumentException('Invalid receipt constructor params');
         }
 
-        $config = array_merge($cashDesk->getConfig(), $config);
+        $config = $cashDesk->getConfig();
         if (empty($config['group_code'])
             || empty($config['inn'])
             || empty($config['payment_address'])
             || empty($config['sno'])
-            || empty($config['vat'])
         ) {
-            throw new \InvalidArgumentException('Online cash desk config does not contain required param(s): INN, payment address, tex');
+            throw new \InvalidArgumentException('Online cash desk config does not contain required param(s): INN, payment address, tax system, group_code');
         }
 
-        $this->setCreationDateTime(new \DateTime('now'));
-        $this->setType(isset($config['document_type']) ? $config['document_type'] : self::TYPE_SELL);
         $this->setCompanyInn($config['inn']);
         $this->setAddress($config['payment_address']);
         $this->setTaxSystem($config['sno']);
-
-        if ($orderId) {
-            $this->setOrderId($orderId);
-        }
 
         $this->data['group_code'] = $config['group_code'];
         $this->data['service']['callback_url'] = '';
