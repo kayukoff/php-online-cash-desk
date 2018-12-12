@@ -94,7 +94,7 @@ abstract class AbstractReceiptItem implements ReceiptItem
 
     public function setPrice($price)
     {
-        return $this->setData('price', $price);
+        return $this->setData('price', floatval($price));
     }
 
     public function getQuantity()
@@ -104,7 +104,7 @@ abstract class AbstractReceiptItem implements ReceiptItem
 
     public function setQuantity($quantity)
     {
-        return $this->setData('quantity', $quantity);
+        return $this->setData('quantity', floatval($quantity));
     }
 
     public function getTotal()
