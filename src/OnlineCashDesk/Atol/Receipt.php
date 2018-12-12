@@ -104,7 +104,7 @@ abstract class Receipt extends \OnlineCashDesk\AbstractReceipt
         $this->data = $data;
 
         if (!empty($this->data['receipt']['items'])) {
-            $class = 'ReceiptItem';
+            $class = str_replace('Receipt', 'ReceiptItem', get_class($this));
             foreach ($this->data['receipt']['items'] as $itemArray) {
                 $this->items[] = new $class($itemArray);
             }
