@@ -48,7 +48,7 @@ class Receipt extends \OnlineCashDesk\Atol\Receipt
 
     public function setCompanyInn($inn)
     {
-        $this->data['receipt']['company']['inn'] = $inn;
+        $this->data['receipt']['company']['inn'] = strval($inn);
 
         return $this;
     }
