@@ -71,6 +71,8 @@ class ReceiptItem extends \OnlineCashDesk\AbstractReceiptItem
             self::VAT_TYPE_18 => 'NDS_18',
             self::VAT_TYPE_110 => 'NDS_10_CALCULATED',
             self::VAT_TYPE_118 => 'NDS_18_CALCULATED',
+            self::VAT_TYPE_20 => 'NDS_20',
+            self::VAT_TYPE_120 => 'NDS_20_CALCULATED',
         ];
 
         $this->vatTypeInternalToId = [
@@ -80,6 +82,8 @@ class ReceiptItem extends \OnlineCashDesk\AbstractReceiptItem
             'NDS_18' => self::VAT_TYPE_18,
             'NDS_10_CALCULATED' => self::VAT_TYPE_110,
             'NDS_18_CALCULATED' => self::VAT_TYPE_118,
+            'NDS_20' => self::VAT_TYPE_20,
+            'NDS_20_CALCULATED' => self::VAT_TYPE_120,
         ];
     }
 

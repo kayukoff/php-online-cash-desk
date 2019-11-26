@@ -18,6 +18,8 @@ abstract class ReceiptItem extends \OnlineCashDesk\AbstractReceiptItem
             self::VAT_TYPE_18 => 'vat18',
             self::VAT_TYPE_110 => 'vat110',
             self::VAT_TYPE_118 => 'vat118',
+            self::VAT_TYPE_20 => 'vat20',
+            self::VAT_TYPE_120 => 'vat120',
         ];
 
         $this->vatTypeInternalToId = [
@@ -27,6 +29,8 @@ abstract class ReceiptItem extends \OnlineCashDesk\AbstractReceiptItem
             'vat18' => self::VAT_TYPE_18,
             'vat110' => self::VAT_TYPE_110,
             'vat118' => self::VAT_TYPE_118,
+            'vat20' => self::VAT_TYPE_20,
+            'vat120' => self::VAT_TYPE_120,
         ];
     }
 }

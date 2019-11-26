@@ -9,30 +9,6 @@ namespace OnlineCashDesk\Atol\v4;
 
 class ReceiptItem extends \OnlineCashDesk\Atol\ReceiptItem
 {
-    /*public function getVatType()
-    {
-        return isset($this->data['vat']['type']) ? $this->data['vat']['type'] : null;
-    }
-
-    public function setVatType($vatType)
-    {
-        $this->data['vat']['type'] = $vatType;
-
-        return $this;
-    }
-
-    public function getVatSum()
-    {
-        return isset($this->data['vat']['sum']) ? $this->data['vat']['sum'] : null;
-    }
-
-    public function setVatSum($vatSum)
-    {
-        $this->data['vat']['sum'] = $vatSum;
-
-        return $this;
-    }*/
-
     protected function init()
     {
         parent::init();
@@ -45,11 +21,21 @@ class ReceiptItem extends \OnlineCashDesk\Atol\ReceiptItem
         $this->typeIdToInternal = [
             self::TYPE_PIECE_GOODS => 'commodity',
             self::TYPE_EXCISE_GOODS => 'excise',
+            self::TYPE_SERVICE => 'service',
+            self::TYPE_JOB => 'job',
+            self::TYPE_PAYMENT => 'payment',
+            self::TYPE_COMPOSITE => 'composite',
+            self::TYPE_ANOTHER => 'another',
         ];
 
         $this->typeInternalToId = [
             'commodity' => self::TYPE_PIECE_GOODS,
             'excise' => self::TYPE_EXCISE_GOODS,
+            'service' => self::TYPE_SERVICE,
+            'job' => self::TYPE_JOB,
+            'payment' => self::TYPE_PAYMENT,
+            'composite' => self::TYPE_COMPOSITE,
+            'another' => self::TYPE_ANOTHER,
         ];
 
         $this->paymentMethodIdToInternal = [

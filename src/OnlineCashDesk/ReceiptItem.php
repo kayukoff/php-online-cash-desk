@@ -6,9 +6,14 @@ namespace OnlineCashDesk;
 interface ReceiptItem
 {
     // Тип объекта позиции
-    const TYPE_PIECE_GOODS = 0x01;  // штучный товар
+    const TYPE_PIECE_GOODS    = 0x01;  // штучный товар
     const TYPE_WEIGHTED_GOODS = 0x02;  // весовой товар
-    const TYPE_EXCISE_GOODS = 0x03;  // подакцизный товар
+    const TYPE_EXCISE_GOODS   = 0x03;  // подакцизный товар
+    const TYPE_SERVICE        = 0x04;  // услуга
+    const TYPE_JOB            = 0x05;  // работа
+    const TYPE_PAYMENT        = 0x06;  // платеж (аванс, задаток, предоплата, кредит, взнос в счет оплаты и т.п.)
+    const TYPE_COMPOSITE      = 0x07;  // составной товар
+    const TYPE_ANOTHER        = 0x08;  // иной товар не попадающий ни под одну из имеющихся категорий
 
     // Ставка НДС
     const VAT_TYPE_NONE = 0x01;  // без НДС
@@ -17,12 +22,14 @@ interface ReceiptItem
     const VAT_TYPE_18   = 0x04;  // ставка 18%
     const VAT_TYPE_110  = 0x05;  // ставка 10/110
     const VAT_TYPE_118  = 0x06;  // ставка 18/118
+    const VAT_TYPE_20   = 0x07;  // ставка 20%
+    const VAT_TYPE_120  = 0x08;  // ставка 20/120
 
     // Способ расчёта за позицию
-    const PAYMENT_METHOD_FULL_PREPAYMENT = 0x01;  // полная оплата
+    const PAYMENT_METHOD_FULL_PREPAYMENT = 0x01;  // предоплата 100% (предмет расчета передается позже)
     const PAYMENT_METHOD_PREPAYMENT      = 0x02;  // предоплата
     const PAYMENT_METHOD_ADVANCE         = 0x03;  // аванс
-    const PAYMENT_METHOD_FULL_PAYMENT    = 0x04;  // полный расчет
+    const PAYMENT_METHOD_FULL_PAYMENT    = 0x04;  // полный расчет (предмет расчета передается сразу после оплаты)
     const PAYMENT_METHOD_PARTIAL_PAYMENT = 0x05;  // частичный расчет и кредит
     const PAYMENT_METHOD_CREDIT          = 0x06;  // передача в кредит
     const PAYMENT_METHOD_CREDIT_PAYMENT  = 0x07;  // оплата кредита
